@@ -10,6 +10,7 @@ from flask import Flask
 from flask import session
 from flask import redirect
 from flask.ext.sqlalchemy import SQLAlchemy
+from views import *
 
 
 app = Flask(__name__)
@@ -20,15 +21,6 @@ app.config['SQLALCHEMY_COMMIT_ON_TEARDOWN'] = True
 db = SQLAlchemy(app)
 db.create_all()
 
-
-@app.route('/', methods=['GET'])
-def index():
-    return redirect("http://www.baidu.com/")
-
-
-@app.route('/login', methods=['GET', 'POST'])
-def login():
-    pass
 
 
 if __name__ == '__main__':
